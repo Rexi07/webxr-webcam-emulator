@@ -1333,6 +1333,24 @@
 			this.targetRaySpace = new XRSpace();
 			this.gripSpace = new XRSpace();
 
+			// Create a gamepad-like object for compatibility with apps that expect it
+			this.gamepad = {
+				axes: [ 0, 0, 0, 0 ],
+				buttons: [
+					{ pressed: false, touched: false, value: 0 }, // trigger
+					{ pressed: false, touched: false, value: 0 }, // grip
+					{ pressed: false, touched: false, value: 0 }, // touchpad
+					{ pressed: false, touched: false, value: 0 }, // thumbstick
+				],
+				connected: true,
+				hand: handedness,
+				hapticActuators: [],
+				id: 'webxr-webcam-emulator',
+				index: handedness === 'left' ? 0 : 1,
+				mapping: 'xr-standard',
+				timestamp: performance.now()
+			};
+
 			if ( handTrackingEnabled ) {
 
 				this.profiles = [ 'generic-hand', 'generic-hand-select' ];
@@ -1376,6 +1394,8 @@
 				);
 				this.targetRaySpace._transform = this.gripSpace._transform;
 
+				this._updateGamepad( handData );
+
 				if ( ! this._handTrackingEnabled && this._session ) {
 
 					this._detectGestures( handData );
@@ -1386,11 +1406,34 @@
 
 		}
 
+		_updateGamepad( handData ) {
+
+			const joints = handData.joints;
+			if ( joints.length < 10 ) return;
+
+			const thumbTip = joints[ 4 ].position;
+			const indexTip = joints[ 9 ].position;
+
+			const pinchDist = Math.sqrt(
+				( thumbTip.x - indexTip.x ) ** 2 +
+				( thumbTip.y - indexTip.y ) ** 2 +
+				( thumbTip.z - indexTip.z ) ** 2
+			);
+
+			const pinchThreshold = this._pinchThreshold || 0.05;
+			const triggerValue = Math.max( 0, 1 - ( pinchDist / pinchThreshold ) );
+
+			this.gamepad.buttons[ 0 ].pressed = pinchDist < pinchThreshold;
+			this.gamepad.buttons[ 0 ].touched = pinchDist < pinchThreshold * 2;
+			this.gamepad.buttons[ 0 ].value = Math.min( 1, triggerValue );
+			this.gamepad.timestamp = performance.now();
+
+		}
+
 		_detectGestures( handData ) {
 
 			const joints = handData.joints;
-
-			if ( joints.length < 5 ) return;
+			if ( joints.length < 10 ) return;
 
 			const thumbTip = joints[ 4 ].position;
 			const indexTip = joints[ 9 ].position;
